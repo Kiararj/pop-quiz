@@ -36,8 +36,10 @@ var questions = [
 
 var questionIndex = 0;
 var secondsLeft = 59;
+var score = 0;
 
 //DOM Elements
+var startScreenEl = document.getElementById("start-screen");
 var startEl = document.getElementById("start-btn");
 var timerEl = document.getElementById("timer");
 
@@ -46,22 +48,24 @@ startEl.addEventListener("click", startQuiz);
 
 function startQuiz(){
   startEl.style.display = "none";
+  startScreenEl.style.display = "none";
 
-  function showQuestion(){
+  questionIndex = 0;
+  score = 0;
+  showQuestion();
+  endQuiz();
+}
+
+function showQuestion(){
     for (let i = 0; i < questions[questionIndex].choices.length; i++){
       const options = questions[questionIndex].choices[i];
       var optionsButton = document.createElement("button");
       optionsButton.textContent = options;
     }
     }
-    
-    showQuestion();
-
-    endQuiz();
 
 // console.log(questions[questionIndex].title);
 // questionIndex = questionIndex +1;
-}
 
 // Countdown timer to end quiz
 function endQuiz() {
