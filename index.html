@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pop Quiz</title>
     <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/script.js"></script>
 </head>
 <body>
-    
+<header>
+    <p id="high-score">View High Scores</p>
+    <div id="timer">Time: 60</div>
+</header>
+<div class="start-screen" id="start-screen">
+    <h1>Coding Quiz Challenge</h1>
+    <p>Try to answer the following code-related questions within the time limit.
+        <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+    <button id="start-btn">Start Quiz</button>
+</div>
+    <div id="quiz">
+        <h2 id="question"></h2>
+            <ul id="choices"></ul>
+            <p id="feedback"></p>
+        </div>
+<script src="assets/script.js"></script>
 </body>
 </html>
