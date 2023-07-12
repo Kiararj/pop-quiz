@@ -42,6 +42,9 @@ var score = 0;
 var startScreenEl = document.getElementById("start-screen");
 var startEl = document.getElementById("start-btn");
 var timerEl = document.getElementById("timer");
+var questionEl = document.getElementById("question");
+var choicesEl = document.getElementById("choices");
+var feedbackEl = document.getElementById("feedback");
 
 //Click event
 startEl.addEventListener("click", startQuiz);
@@ -57,15 +60,24 @@ function startQuiz(){
 }
 
 function showQuestion(){
-    for (let i = 0; i < questions[questionIndex].choices.length; i++){
-      const options = questions[questionIndex].choices[i];
-      var optionsButton = document.createElement("button");
-      optionsButton.textContent = options;
-    }
-    }
 
-// console.log(questions[questionIndex].title);
-// questionIndex = questionIndex +1;
+    var currentQuestion = questions[questionIndex];
+    questionEl.textContent = currentQuestion.title;
+    choicesEl.innerHTML = "";
+    feedbackEl.textContent = "";
+
+    currentQuestion.choices.forEach(function (choice, index) {
+      var listItemEl = document.createElement("li");
+      var buttonEl = document.createElement("button");
+      buttonEl.textContent = choice;
+      buttonEl.addEventListener("click", function () {
+        checkAnswer(index);
+      });
+      listItemEl.appendChild(buttonEl);
+      choicesEl.appendChild(listItemEl);
+    });
+  }
+
 
 // Countdown timer to end quiz
 function endQuiz() {
@@ -79,5 +91,3 @@ function endQuiz() {
     }, 1000);
 }
 
-
-// console.log(questions[1].title);
