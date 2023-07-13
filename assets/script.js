@@ -1,4 +1,3 @@
-//DOM Elements
 var startScreenEl = document.getElementById("start-screen");
 var startEl = document.getElementById("start-btn");
 var timerEl = document.getElementById("timer");
@@ -50,11 +49,12 @@ function endQuiz() {
   timerEl.textContent = "Time: " + secondsLeft;
   choicesEl.innerHTML = "";
   feedbackEl.textContent = "";
+  questionEl.textContent = "Quiz Completed! Your score is: " + score;
 }
 
-function showQuestion(questions) {
+function showQuestion() {
   var currentQuestion = questions[questionIndex];
-  questionEl.textContent = questions.currentQuestion.title;
+  questionEl.textContent = currentQuestion.title;
   choicesEl.innerHTML = "";
   feedbackEl.textContent = "";
 
